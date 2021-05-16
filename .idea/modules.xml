@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Javasolvings/Javasolvings.iml" filepath="$PROJECT_DIR$/Javasolvings/Javasolvings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/LeetCode.iml" filepath="$PROJECT_DIR$/.idea/LeetCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Javasolvings/Test.iml" filepath="$PROJECT_DIR$/Javasolvings/Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Testings/Testings.iml" filepath="$PROJECT_DIR$/Testings/Testings.iml" />
+    </modules>
+  </component>
+</project>
