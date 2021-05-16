@@ -23,7 +23,7 @@ class Solution{
             return result;
         }
         HashMap<Integer, Integer> map = new HashMap<>();
-        // 将nums[i]和i分别存储在集合对象map的key和value
+        // 将nums[i]和i分别存储在map的key和value
         for (int i = 0; i < len; i++) {
             map.put(nums[i], i );
         }
