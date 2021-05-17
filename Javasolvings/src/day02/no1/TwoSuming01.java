@@ -12,15 +12,11 @@ public class TwoSuming01 {
         ListNode h1 = new ListNode(4,h2);
         // 结果应该是：1-->1-->8
         // 打印结果应该是：8，1，1
-        /*ListNode ret = Solution.addTwoNumbers(l1,h1);
-        while(ret.next != null){
-            System.out.println(ret.val);
-            ret = ret.next;
-        }*/
-        ListNode c = Solution.changeList(2345);
-        /*while(c.next != null){
-            System.out.println(c.val);
-        }*/
+        Solution solution = new Solution();
+        ListNode ret = solution.addTwoNumbers(l1,h1);
+        // h1.Traverse();
+        ret.Traverse();
+
     }
 }
 
@@ -36,42 +32,45 @@ class ListNode {
     ListNode(int val, ListNode next) {
         this.val = val; this.next = next;
     }
+    public void Traverse(){
+        ListNode current = this;
+        if(this == null){
+            return;
+        }
+        while(current != null){
+            System.out.println(current.val);
+            current = current.next;
+        }
+    }
 
 }
 class Solution {
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int count1 = 0;
-        int a = 0;
-        int count2 = 0;
-        int b = 0;
-        int sum = 0;
-        int count3 = 0;
-        while(l1.next != null){
-            count1 ++;
-            a = a + l1.val * (10^(count1-1));
-            l1 = l1.next;
-        }
-        while(l2.next != null){
-            count2 ++;
-            b = b + l1.val * (10^(count2-1));
-            l2 = l2.next;
-        }
-        sum = a + b;
-        System.out.println(sum);
-        // 递归
-        return changeList(sum);
-    }
-    public static ListNode changeList(int c){
-        while(true){
-            int counter = 0;
-            counter++;
-            int temp = (int)(c%(Math.pow(10,counter)));
-            int temp1 = (int)(c/(Math.pow(10,counter)));
-            if(temp1 == 0){
-                return new ListNode(c,null);
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode head = null, tail = null;
+        int carry = 0;
+        while (l1 != null || l2 != null) {
+            int n1 = l1 != null ? l1.val : 0;
+            int n2 = l2 != null ? l2.val : 0;
+            int sum = n1 + n2 + carry;
+            if (head == null) {
+                head = tail = new ListNode(sum % 10);
+            } else {
+                tail.next = new ListNode(sum % 10);
+                tail = tail.next;
             }
-            return new ListNode(temp,changeList(temp1));
-
+            carry = sum / 10;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
         }
+        // 将最后的进位写进链表
+        if (carry > 0) {
+            tail.next = new ListNode(carry);
+        }
+        return head;
+
     }
 }
