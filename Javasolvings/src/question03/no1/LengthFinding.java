@@ -1,4 +1,4 @@
-package day03.no1;
+package question03.no1;
 import java.util.HashMap;
 
 public class LengthFinding {

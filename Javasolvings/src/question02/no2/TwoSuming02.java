@@ -1,4 +1,4 @@
-package day02.no2;
+package question02.no2;
 
 /*
 * 递归实现

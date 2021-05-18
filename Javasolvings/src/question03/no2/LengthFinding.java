@@ -1,4 +1,4 @@
-package day03.no2;
+package question03.no2;
 /**
  * 双指针
  * */
@@ -8,8 +8,10 @@ public class LengthFinding {
         String s2 = "abcabcbb";
         String s3 = "abcdabcdeabcdef";
         String s4 = "bbbb";
+        String s5 = "abbc";
+        String s6 = "pwwpkew";
         Solution solution = new Solution();
-        int ret = solution.lengthOfLongestSubstring(s2);
+        int ret = solution.lengthOfLongestSubstring(s6);
         System.out.println(ret);
     }
 }
@@ -31,10 +33,12 @@ class Solution {
             //每次循环都所指向将右侧指针向前移动一位，并将右侧指针的字符的数量增加1
             //(byte) cs[right]表示将字符cs[right]转换为其所对应的ASCII码，在0~127之间，
             //恰好可以使用byte表示
-            num[(byte) cs[right]]++;
+            num[(byte)cs[right]]++;
             //如果此时右侧指针所对应的字符的数量超过1，表示已经有了重复字符，将左指针右移
-            while(num[(byte) cs[right]] > 1) {
-                num[(byte) cs[left++]]--;
+            // 右移之后，左指针和右指针将会重逢，此时
+            while(num[(byte)cs[right]] > 1) {
+                num[(byte)cs[left]]--;
+                left++;
             }
             //更新结果，取之前的结果与当前窗口长度的最大值
             res = Math.max(res, right - left + 1);

@@ -1,4 +1,4 @@
-package day02.no1;
+package question02.no1;
 
 public class TwoSuming01 {
     public static void main(String[] args) {
